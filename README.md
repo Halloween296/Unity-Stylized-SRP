@@ -7,7 +7,7 @@
 
 从零开始实现的自定义渲染管线，支持 PBR 物理渲染和卡通风格化渲染的无缝切换(支持多光源toon用的smooth光照影响更加平滑)，包含体积光、IBL、Bloom 等。
 
-<img width="1232" height="1104" alt="Untitled (1)" src="https://github.com/user-attachments/assets/eae3c589-9ca9-44bc-a729-2e81b1f22090" />
+<img width="432" height="404" alt="Untitled (1)" src="https://github.com/user-attachments/assets/eae3c589-9ca9-44bc-a729-2e81b1f22090" />
 
 
 在同一个 Shader 中实现 PBR 和 Toon 的切换
