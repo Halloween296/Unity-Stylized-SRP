@@ -7,8 +7,11 @@
 
 从零开始实现的自定义渲染管线，支持 PBR 物理渲染和卡通风格化渲染的无缝切换(支持多光源toon用的smooth光照影响更加平滑)，包含体积光、IBL、Bloom 等。
 
+<img width="1232" height="1104" alt="Untitled (1)" src="https://github.com/user-attachments/assets/eae3c589-9ca9-44bc-a729-2e81b1f22090" />
+
+
 在同一个 Shader 中实现 PBR 和 Toon 的切换
-使用 #ifdef _TOON_SHADING 在 Shader 中分支避免重复进行光照计算纹理采样适合一个场景中同时支持 PBR 和 Toon的情况
+使用 #ifdef _TOON_SHADING 在 Shader 中分支（静态分支不算两遍）避免重复进行光照计算纹理采样适合一个场景中同时支持 PBR 和 Toon的情况
 
 <img width="220" height="355" alt="屏幕截图 2026-03-05 231528" src="https://github.com/user-attachments/assets/770440ad-f4e9-463a-a246-ca44113549b0" />
 
@@ -30,9 +33,9 @@
 加aces因为之前软光栅实现过了就不重新写了
 
 3、问题：
-还是可能有锯齿因为我用的msaa是多点采样对边缘进行优化而已
+还是可能有锯齿因为我用的msaa是多点采样对边缘进行优化而已还有法线挤出断开和后处理实现的全屏ao消耗的问题
 3、解决办法：
-再加一个fxaa
+再加一个fxaa抗锯齿，（已实现具体见主页）写了blender插件平滑法线+烘培ao到顶点色rgb和a通道
 
 4、Lut、len有bug待解决以及我这个体积光采样为了偷懒全部像素都发射射线反正会计算聚光灯夹角所以写死了1
 4、解决办法：
