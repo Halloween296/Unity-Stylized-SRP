@@ -10,6 +10,11 @@
 在同一个 Shader 中实现 PBR 和 Toon 的切换
 使用 #ifdef _TOON_SHADING 在 Shader 中分支避免重复进行光照计算纹理采样适合一个场景中同时支持 PBR 和 Toon的情况
 
+<img width="220" height="355" alt="屏幕截图 2026-03-05 231528" src="https://github.com/user-attachments/assets/770440ad-f4e9-463a-a246-ca44113549b0" />
+
+通过 Frame Debugger 得知：可以看到 SRP Batcher 成功合批后处理时所有效果均使用全屏大三角形替代了传统的矩形它是两个三角形所以消除了对角线像素反复计算的性能浪费而且MSAA在后处理前被正确调用。
+
+
 待解决/优化：
 ```text
 1、问题：
