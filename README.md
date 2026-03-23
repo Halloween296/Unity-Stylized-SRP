@@ -1,5 +1,5 @@
 # Unity-Stylized-SRP
-基于 Unity C# 的学习向自定义渲染管线包含pbr和npr后处理栈等
+基于 Unity C# 实现的自定义 SRP，包含 PBR 光照模型、NPR 后处理效果与可扩展渲染框架
 
 模型：miHoYo/神帝宇
 
