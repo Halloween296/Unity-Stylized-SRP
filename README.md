@@ -7,7 +7,13 @@
 
 从零开始实现的自定义渲染管线，支持 PBR 物理渲染和卡通风格化渲染的无缝切换(支持多光源toon用的smooth光照影响更加平滑)，包含体积光、IBL、Bloom 等。
 
-<img width="432" height="404" alt="Untitled (1)" src="https://github.com/user-attachments/assets/eae3c589-9ca9-44bc-a729-2e81b1f22090" />
+
+
+<img width="237" height="248" alt="屏幕截图 2026-03-09 194110" src="https://github.com/user-attachments/assets/6b8e258a-6dbb-452b-96eb-2690e98c5f0e" />
+
+<img width="237" height="248" alt="image" src="https://github.com/user-attachments/assets/0c865df5-3f57-408d-9ec5-90ee6fc58cfa" />
+
+
 
 
 在同一个 Shader 中实现 PBR 和 Toon 的切换
@@ -42,6 +48,8 @@
 通过先计算射线发射也就是能被我们看到/聚光灯圆锥体内的范围（求交）剔除不需要的像素再计算降低ALU计算量
 
 5、如果需要节约性能级联阴影可以降低层数用较低分辨率的shadowmap以及ibl漫反射部分可以换成球谐函数环境光并且取消勾选brdf lut查表用近似算、brdf的计算换成f和d项近似算法降低光线步进体积光步数勾选SRP Batcher具体见注释
+
+6、if太多了把useMatcap/useSDF去掉
 ```
 特性：
 ```text
